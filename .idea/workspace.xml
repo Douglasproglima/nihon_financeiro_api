@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="3deef36e-8eaa-4b5a-9d4b-a1a2dd81e3e6" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/factories/users.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/factories/users.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/models/user_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/models/user_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/api/v1/users_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/api/v1/users_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/helpers/api/v1/users_helper_spec.rb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spec/requests/api/v1/users_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/requests/api/v1/users_spec.rb" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
@@ -25,26 +26,11 @@
       <file leaf-file-name="users_spec.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spec/requests/api/v1/users_spec.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="13" column="67" selection-start-line="13" selection-start-column="67" selection-end-line="13" selection-end-column="67" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user_spec.rb" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/spec/models/user_spec.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="401">
-              <caret line="45" column="51" selection-start-line="45" selection-start-column="51" selection-end-line="45" selection-end-column="51" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="users_controller.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/users_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+            <state relative-caret-position="152">
+              <caret line="8" column="31" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="31" />
+              <folding>
+                <element signature="e#313#971#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -52,17 +38,17 @@
       <file leaf-file-name="routes.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/routes.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="16" column="43" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
+            <state relative-caret-position="323">
+              <caret line="17" column="44" selection-start-line="17" selection-start-column="44" selection-end-line="17" selection-end-column="44" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/user.rb">
+      <file leaf-file-name="users_controller.rb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/users_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
+            <state relative-caret-position="282">
+              <caret line="19" column="55" selection-start-line="19" selection-start-column="55" selection-end-line="19" selection-end-column="55" />
             </state>
           </provider>
         </entry>
@@ -104,11 +90,12 @@
         <option value="$PROJECT_DIR$/spec/rails_helper.rb" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/spec/requests/api/v1/users_controller_spec.rb" />
-        <option value="$PROJECT_DIR$/config/routes.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/api/v1/users_controller.rb" />
-        <option value="$PROJECT_DIR$/spec/requests/api/v1/users_spec.rb" />
         <option value="$PROJECT_DIR$/spec/factories/users.rb" />
         <option value="$PROJECT_DIR$/spec/models/user_spec.rb" />
+        <option value="$PROJECT_DIR$/spec/helpers/api/v1/users_helper_spec.rb" />
+        <option value="$PROJECT_DIR$/config/routes.rb" />
+        <option value="$PROJECT_DIR$/spec/requests/api/v1/users_spec.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/api/v1/users_controller.rb" />
       </list>
     </option>
   </component>
@@ -185,50 +172,21 @@
             <path>
               <item name="nihon_financeiro_api" type="52f3b0f7:RailsProjectNode" />
               <item name="nihon_financeiro_api" type="ca5d24b0:RailsModuleNode" />
-              <item name="Models" type="4bd37eb5:ModelsFolderNode" />
-            </path>
-            <path>
-              <item name="nihon_financeiro_api" type="52f3b0f7:RailsProjectNode" />
-              <item name="nihon_financeiro_api" type="ca5d24b0:RailsModuleNode" />
-              <item name="Config" type="9a8f28a7:ConfigFolderNode" />
-            </path>
-            <path>
-              <item name="nihon_financeiro_api" type="52f3b0f7:RailsProjectNode" />
-              <item name="nihon_financeiro_api" type="ca5d24b0:RailsModuleNode" />
-              <item name="RSpec" type="c5b1b344:RSpecFolderNode" />
+              <item name="Controllers" type="28580ddf:ControllersFolderNode" />
+              <item name="api" type="503739b6:ControllersSubFolderNode" />
+              <item name="v1" type="503739b6:ControllersSubFolderNode" />
+              <item name="UsersController" type="2b770dde:ControllerClassNode" />
             </path>
             <path>
               <item name="nihon_financeiro_api" type="52f3b0f7:RailsProjectNode" />
               <item name="nihon_financeiro_api" type="ca5d24b0:RailsModuleNode" />
               <item name="RSpec" type="c5b1b344:RSpecFolderNode" />
-              <item name="controllers" type="3dfa953c:FolderSubFolderNode" />
-            </path>
-            <path>
-              <item name="nihon_financeiro_api" type="52f3b0f7:RailsProjectNode" />
-              <item name="nihon_financeiro_api" type="ca5d24b0:RailsModuleNode" />
-              <item name="RSpec" type="c5b1b344:RSpecFolderNode" />
-              <item name="controllers" type="3dfa953c:FolderSubFolderNode" />
-              <item name="api" type="3dfa953c:FolderSubFolderNode" />
-            </path>
-            <path>
-              <item name="nihon_financeiro_api" type="52f3b0f7:RailsProjectNode" />
-              <item name="nihon_financeiro_api" type="ca5d24b0:RailsModuleNode" />
-              <item name="RSpec" type="c5b1b344:RSpecFolderNode" />
-              <item name="controllers" type="3dfa953c:FolderSubFolderNode" />
-              <item name="api" type="3dfa953c:FolderSubFolderNode" />
-              <item name="v1" type="3dfa953c:FolderSubFolderNode" />
             </path>
             <path>
               <item name="nihon_financeiro_api" type="52f3b0f7:RailsProjectNode" />
               <item name="nihon_financeiro_api" type="ca5d24b0:RailsModuleNode" />
               <item name="RSpec" type="c5b1b344:RSpecFolderNode" />
               <item name="factories" type="3dfa953c:FolderSubFolderNode" />
-            </path>
-            <path>
-              <item name="nihon_financeiro_api" type="52f3b0f7:RailsProjectNode" />
-              <item name="nihon_financeiro_api" type="ca5d24b0:RailsModuleNode" />
-              <item name="RSpec" type="c5b1b344:RSpecFolderNode" />
-              <item name="models" type="3dfa953c:FolderSubFolderNode" />
             </path>
             <path>
               <item name="nihon_financeiro_api" type="52f3b0f7:RailsProjectNode" />
@@ -371,7 +329,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1528041630895</updated>
-      <workItem from="1528041632872" duration="16635000" />
+      <workItem from="1528041632872" duration="18910000" />
     </task>
     <task id="LOCAL-00001" summary="Comentário Inicial">
       <created>1528044744633</created>
@@ -384,7 +342,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16635000" />
+    <option name="totallyTimeSpent" value="18910000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -485,6 +443,13 @@
     <entry file="file://$PROJECT_DIR$/spec/controllers/api/v1/users_controller_spec.rb">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/spec/models/user_spec.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="45" column="51" selection-start-line="45" selection-start-column="51" selection-end-line="45" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/user.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
@@ -492,17 +457,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+    <entry file="file://$PROJECT_DIR$/spec/helpers/api/v1/users_helper_spec.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" column="43" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
+        <state relative-caret-position="285">
+          <caret line="15" lean-forward="true" selection-end-line="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/users_controller.rb">
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+        <state relative-caret-position="323">
+          <caret line="17" column="44" selection-start-line="17" selection-start-column="44" selection-end-line="17" selection-end-column="44" />
         </state>
       </provider>
     </entry>
@@ -515,15 +480,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/spec/requests/api/v1/users_spec.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="13" column="67" selection-start-line="13" selection-start-column="67" selection-end-line="13" selection-end-column="67" />
+        <state relative-caret-position="152">
+          <caret line="8" column="31" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="31" />
+          <folding>
+            <element signature="e#313#971#0" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spec/models/user_spec.rb">
+    <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/users_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="45" column="51" selection-start-line="45" selection-start-column="51" selection-end-line="45" selection-end-column="51" />
+        <state relative-caret-position="282">
+          <caret line="19" column="55" selection-start-line="19" selection-start-column="55" selection-end-line="19" selection-end-column="55" />
         </state>
       </provider>
     </entry>

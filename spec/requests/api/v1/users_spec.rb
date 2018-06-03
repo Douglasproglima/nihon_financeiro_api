@@ -9,6 +9,7 @@ RSpec.describe 'Usuários da API', type: :request do
   before { host! 'api.localhost.test' }
   # before { host! "api.nihon_financeiro.test" }
 
+  #Método GET
   describe 'GET /users/:id' do
     before do
       headers = { 'Accept' => 'application/vnd.nihon_financeiro.v1' }
@@ -31,6 +32,37 @@ RSpec.describe 'Usuários da API', type: :request do
 
       it 'Retorna o código status: 404 ERROR' do
         expect(response).to have_http_status(404)
+      end
+    end
+  end
+
+  #Método POST
+  describe 'POST /users' do
+    before do
+      headers = { 'Accept' => 'application/vnd.nihon_financeiro.v1' }
+      post '/users', params: { user: user_params }, headers: headers
+    end
+
+    context 'Quando a requisição passando parâmetros é válida' do
+      let(:user_params){FactoryGirl.attributes_for(:user)}
+
+      it 'Retorna o código status: 201' do
+        expect(response).to have_http_status(201)
+      end
+
+      it 'Retorna JSON com os dados do usuário criado' do
+        user_response = JSON.parse(response.body)
+
+        expect(user_response['email']).to eq(user_params[:email])
+      end
+    end
+
+    context 'Quando a requisição passando parâmetros é invalida' do
+      let(:user_params) { attributes_for(:user, email: 'email_invalido@') }
+
+      it 'Retorna o código status: 422 ERRO' do
+        user_response = JSON.parse(response.body)
+        expect(user_response).to have_key('errors')
       end
     end
   end

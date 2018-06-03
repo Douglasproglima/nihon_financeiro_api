@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     namespace :v1, path: "/", constraints: ApiVersionConstraint.new(version: 1, default: true) do
 
       #Define a rota para o controller User
-      resources :users, only: [:show]
+      resources :users, only: [:show, create]
     end
   end
 
