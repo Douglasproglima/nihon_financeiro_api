@@ -6,7 +6,8 @@ RSpec.describe 'Usuários da API', type: :request do
   let!(:user){ create(:user) }
   let(:user_id){ user.id }
 
-  before { host! 'api.localhost.test' }
+  before { host! 'api.nihon_financeiro.test' }
+  # before { host! 'api.localhost.test' }
   # before { host! "api.nihon_financeiro.test" }
 
   #Método GET
@@ -18,8 +19,8 @@ RSpec.describe 'Usuários da API', type: :request do
 
     context 'Quando o usuário não existir' do
       it 'Retorna o usuário' do
-        user_response = JSON.parse(response.body)
-        expect(user_response["id"]).to eq(user_id)
+        user_response = JSON.parse(response.body, symbolize_name: true)
+        expect(user_response[:id]).to eq(user_id)
       end
 
       it 'Retorna o código status: 200 OK' do
@@ -51,9 +52,9 @@ RSpec.describe 'Usuários da API', type: :request do
       end
 
       it 'Retorna JSON com os dados do usuário criado' do
-        user_response = JSON.parse(response.body)
+        user_response = JSON.parse(response.body, symbolize_name: true)
 
-        expect(user_response['email']).to eq(user_params[:email])
+        expect(user_response[:email]).to eq(user_params[:email])
       end
     end
 
@@ -61,8 +62,8 @@ RSpec.describe 'Usuários da API', type: :request do
       let(:user_params) { attributes_for(:user, email: 'email_invalido@') }
 
       it 'Retorna o código status: 422 ERRO' do
-        user_response = JSON.parse(response.body)
-        expect(user_response).to have_key('errors')
+        user_response = JSON.parse(response.body, symbolize_name: true)
+        expect(user_response).to have_key(:errors)
       end
     end
   end
