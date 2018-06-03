@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
+  #OS TESTES REALIZADOS NESSA ETAPA SÃO SOMENTE EM MEMÓRIA
+
   #1 - Abaixo a primera implementação de testes realizados
   # before { @user = FactoryGirl.build(:user) }
   #
