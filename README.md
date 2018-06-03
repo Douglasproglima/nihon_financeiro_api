@@ -13,4 +13,19 @@ Principais recursos utilizados nesse projeto:
 - PostgreSQL database.
 
 ----------------------------
+API - Backend Ruby on Rails
+-------------
+
+- REST(Representational State Transfer)
+- Verbos HTTP: GET, POST, PUT e DELETE
+- URI(Uniform Resource Identifier)
+	* URL(Uniform Resource Locator)
+	* URN(Uniform Resource Name)
+	
+Exemplo de Requisição:
+-------------
+	GET -> http://www.nihon_financeiro.com:80/contas_receber/21
+
+
+----------------------------
 Este projeto foi desenvolvido por [Douglas Lima](https://github.com/douglasproglima). Ele segue seu código de conduta e diretrizes de contribuição.
