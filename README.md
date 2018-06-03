@@ -1,24 +1,16 @@
-# README
+# API Gestão Financeira Pessoal no Japão
+=======================
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+API do projeto de gestão financeira pessoal para brasileiros residentes no Japão.
 
-Things you may want to cover:
+Principais recursos utilizados nesse projeto:
 
-* Ruby version
+- [Devise](https://github.com/plataformatec/devise) with default modules.
+- [AdminLTE](https://almsaeedstudio.com/) (v.2.3.7) theme included for the admin panel.
+- [SendGrid](https://github.com/stephenb/sendgrid) gem for mailing.
+- Continuous testing with [Guard](https://github.com/guard/guard).
+- Puma server.
+- PostgreSQL database.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+----------------------------
+Este projeto foi desenvolvido por [Douglas Lima](https://github.com/douglasproglima). Ele segue seu código de conduta e diretrizes de contribuição.
