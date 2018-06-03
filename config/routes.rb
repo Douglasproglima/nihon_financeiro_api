@@ -2,6 +2,7 @@ require 'api_version_constraint'
 
 Rails.application.routes.draw do
 
+  devise_for :users
   #Rotas referente há API, caso necessário criar um namespace separado para a área administrativa
   #Exemplo: namespace :admin do ... end
 
