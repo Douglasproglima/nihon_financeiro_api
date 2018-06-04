@@ -45,16 +45,16 @@ RSpec.describe User, type: :model do
   it { is_expected.to validate_uniqueness_of(:email).case_insensitive }
   it { is_expected.to validate_confirmation_of(:password) }
   it { is_expected.to allow_value('admin@admin.com').for(:email) }
-  # it { is_expected.to validate_uniqueness_of(:auth_token) }
+  it { is_expected.to validate_uniqueness_of(:auth_token) }
 
-  # describe '#info' do
-  #   it 'Retorna e-mail, created_at e a Token' do
-  #     user.save!
-  #     allow(Devise).to receive(:friendly_token).and_return('abc123xyzTOKEN')
-  #
-  #     expect(user.info).to eq("#{user.email} - #{user.created_at} - Token: abc123xyzTOKEN")
-  #   end
-  # end
+  describe '#info' do
+    it 'Retorna e-mail, created_at e a Token' do
+      user.save!
+      allow(Devise).to receive(:friendly_token).and_return('abc123xyzTOKEN')
+
+      expect(user.info).to eq("#{user.email} - #{user.created_at} - Token: abc123xyzTOKEN")
+    end
+  end
 
   # describe '#generate_authentication_token!' do
   #   it 'Generates com chave única auth token' do
