@@ -19,7 +19,7 @@ RSpec.describe 'Usuários da API', type: :request do
 
     context 'Quando o usuário não existir' do
       it 'Retorna o usuário' do
-        user_response = JSON.parse(response.body, symbolize_name: true)
+        user_response = JSON.parse(response.body, symbolize_names: true)
         expect(user_response[:id]).to eq(user_id)
       end
 
@@ -31,7 +31,7 @@ RSpec.describe 'Usuários da API', type: :request do
         let(:user_id) {1000}
       end
 
-      it 'Retorna o código status: 404 ERROR' do
+      it 'Retorna o código status: 404 ERRO' do
         expect(response).to have_http_status(404)
       end
     end
@@ -41,7 +41,7 @@ RSpec.describe 'Usuários da API', type: :request do
   describe 'POST /users' do
     before do
       headers = { 'Accept' => 'application/vnd.nihon_financeiro.v1' }
-      post '/users', params: { user: user_params }, headers: headers
+      post '/users/', params: { user: user_params }, headers: headers
     end
 
     context 'Quando a requisição passando parâmetros é válida' do
@@ -52,17 +52,53 @@ RSpec.describe 'Usuários da API', type: :request do
       end
 
       it 'Retorna JSON com os dados do usuário criado' do
-        user_response = JSON.parse(response.body, symbolize_name: true)
-
+        user_response = JSON.parse(response.body, symbolize_names: true)
         expect(user_response[:email]).to eq(user_params[:email])
       end
     end
 
     context 'Quando a requisição passando parâmetros é invalida' do
-      let(:user_params) { attributes_for(:user, email: 'email_invalido@') }
+      let(:user_params) { FactoryGirl.attributes_for(:user, email: 'email_invalido@') }
 
-      it 'Retorna o código status: 422 ERRO' do
-        user_response = JSON.parse(response.body, symbolize_name: true)
+      it 'Retorna o código status: 422' do
+        expect(response).to have_http_status(422)
+      end
+
+      it 'Retorna JSON com os dados de erros' do
+        user_response = JSON.parse(response.body, symbolize_names: true)
+        expect(user_response).to have_key(:errors)
+      end
+    end
+  end
+
+  describe 'PUT /users/:id' do
+    before do
+      headers = { 'Accept' => 'application/vnd.nihon_financeiro.v1' }
+      post "/users/#{user_id}", params: { user: user_params }, headers: headers
+    end
+
+    context 'Quando a requisição passando parâmetros é válida' do
+      let(:user_params){{ email: "new_email@nihon_financeiro.com" }}
+
+      it 'Retorna código status: 200 OK' do
+        expect(response).to have_htpp_status(200)
+      end
+
+      it 'Retorna JSON com os dados do usuário atualizado' do
+        user_reponse = JSON.parse(reponse.body, symbolize_names: true)
+        expect(user_reponse[:email]).to eq(user_params[:email])
+      end
+    end
+
+    context 'Quando a requisição passando parâmetros é invalida' do
+      let(:user_params){{ email: "email_invalido@" }}
+
+      it 'Retorna código status: 422 ERRO' do
+        expect(response).to have_htpp_status(422)
+      end
+
+      it 'Retorna JSON com os dados de erros' do
+        user_response = JSON.parse(response.body, symbolize_names: true)
         expect(user_response).to have_key(:errors)
       end
     end
