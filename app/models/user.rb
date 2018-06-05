@@ -12,7 +12,7 @@ class User < ApplicationRecord
   def info
     "#{email} - #{created_at} - Token: #{Devise.friendly_token}"
   end
-  
+
   # def generate_authentication_token!
   #   begin
   #     self.auth_token = Devise.friendly_token
