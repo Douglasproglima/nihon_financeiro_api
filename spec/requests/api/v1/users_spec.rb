@@ -16,7 +16,7 @@ RSpec.describe 'Usuários da API', type: :request do
   # before { host! 'api.localhost.test' }
   # before { host! "api.nihon_financeiro.test" }
 
-  #Método GET
+  #Verbo GET
   describe 'GET /users/:id' do
     before do
       get "/users/#{user_id}", params: {}, headers: headers
@@ -41,7 +41,7 @@ RSpec.describe 'Usuários da API', type: :request do
     end
   end
 
-  #Método POST
+  #Verbo POST
   describe 'POST /users' do
     before do
       post '/users', params: { user: user_params }.to_json, headers: headers
@@ -72,7 +72,7 @@ RSpec.describe 'Usuários da API', type: :request do
     end
   end
 
-  #Método PUT
+  #Verbo PUT
   describe 'PUT /users/:id' do
     before do
       put "/users/#{user_id}", params: { user: user_params }.to_json, headers: headers
@@ -103,7 +103,7 @@ RSpec.describe 'Usuários da API', type: :request do
     end
   end
 
-  #Método DELETE
+  #Verbo DELETE
   describe 'DELETE /users/:id' do
     before do
       headers = { 'Accept' => 'application/vnd.nihon_financeiro.v1' }
