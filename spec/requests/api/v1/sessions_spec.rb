@@ -28,22 +28,22 @@ RSpec.describe 'Sessão da API', type: :request do
       end
 
       it 'Retorna os dados do usuário autenticado(auth token)' do
-        user.reload
+        user.reload #Força a pegar os dados atuais do banco de dados.
         expect(json_body[:auth_token]).to eq(user.auth_token)
       end
     end
 
-    # context 'Quando as credenciais do user estiverem incorretas' do
-    #   let(:credentials) { { email: user.email, password: 'invalid_password' } }
-    #
-    #   it 'Retorna o código status: 401 ERRO' do
-    #     expect(response).to have_http_status(401)
-    #   end
-    #
-    #   it 'Retornar os dados JSON com os erros' do
-    #     expect(json_body).to have_key(:errors)
-    #   end
-    # end
+    context 'Quando as credenciais do user estiverem incorretas' do
+      let(:credentials) { { email: user.email, password: 'invalid_password' } }
+
+      it 'Retorna o código status: 401 ERRO' do
+        expect(response).to have_http_status(401)
+      end
+
+      it 'Retornar os dados JSON com os erros' do
+        expect(json_body).to have_key(:errors)
+      end
+    end
   end
 
   #Verbo DELETE

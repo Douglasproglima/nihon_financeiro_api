@@ -3,12 +3,12 @@ class Api::V1::SessionsController < ApplicationController
     user = User.find_by(email: sessions_params[:email])
 
     if user && user.valid_password?(sessions_params[:password])
-    #   sign_in user, store: false
-    #   user.generate_authentication_token!
-    #   user.save
+      sign_in user, store: false #É necessário habilitar o 'devise_for :users, only: [:sessions], controllers: { sessions: 'api/v1/sessions' }' do arquivo routes
+      user.generate_authentication_token!
+      user.save
       render json: user, status: 200
-    # else
-    #   render json: { errors: 'Invalid password or email' }, status: 401
+    else
+      render json: { errors: 'E-mail ou senha inválidos' }, status: 401
     end
   end
 

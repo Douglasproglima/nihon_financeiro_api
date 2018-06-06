@@ -2,8 +2,7 @@ require 'api_version_constraint'
 
 Rails.application.routes.draw do
 
-  # devise_for :users, only: [:sessions], controllers: { sessions: 'api/v1/sessions' }
-  devise_for :users
+  devise_for :users, only: [:sessions], controllers: { sessions: 'api/v1/sessions' }
 
   #Rotas referente há API, caso necessário criar um namespace separado para a área administrativa
   #Exemplo: namespace :admin do ... end
