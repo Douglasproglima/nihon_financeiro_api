@@ -14,9 +14,10 @@ Rails.application.routes.draw do
 
     #Na pasta lib contém o arquivo de controle de constraints da API que possui a class ApiVersionConstraint
     namespace :v1, path: '/', constraints: ApiVersionConstraint.new(version: 1, default: true) do
+
       #Define a rota para o controller User
       resources :users, only: [:show, :create, :update, :destroy]
-      # resources :sessions, only: [:create, :destroy]
+      resources :sessions, only: [:create] #, :destroy
       # resources :tasks, only: [:index, :show, :create, :update, :destroy]
     end
   end

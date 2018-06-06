@@ -12,9 +12,9 @@ RSpec.describe 'Usuários da API', type: :request do
     }
   end
 
+  #HOST's
   before { host! 'api.nihon_financeiro.test' }
   # before { host! 'api.localhost.test' }
-  # before { host! "api.nihon_financeiro.test" }
 
   #Verbo GET
   describe 'GET /users/:id' do
