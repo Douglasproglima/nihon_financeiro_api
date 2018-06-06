@@ -8,7 +8,8 @@ RSpec.describe 'Usuários da API', type: :request do
   let(:headers) do
     {
         'Accept' => 'application/vnd.nihon_financeiro.v1',
-        'Content-Type' => Mime[:json].to_s
+        'Content-Type' => Mime[:json].to_s,
+        'Authorization' => user.auth_token
     }
   end
 
@@ -106,7 +107,7 @@ RSpec.describe 'Usuários da API', type: :request do
   #Verbo DELETE
   describe 'DELETE /users/:id' do
     before do
-      headers = { 'Accept' => 'application/vnd.nihon_financeiro.v1' }
+      # headers = { 'Accept' => 'application/vnd.nihon_financeiro.v1' }
       delete "/users/#{user_id}", params: {}, headers: headers
     end
 
