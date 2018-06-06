@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3deef36e-8eaa-4b5a-9d4b-a1a2dd81e3e6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/api/v1/sessions_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/api/v1/sessions_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spec/requests/api/v1/sessions_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/requests/api/v1/sessions_spec.rb" afterDir="false" />
     </list>
@@ -25,8 +23,8 @@
       <file leaf-file-name="sessions_spec.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spec/requests/api/v1/sessions_spec.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="458">
-              <caret line="45" column="7" selection-start-line="35" selection-start-column="4" selection-end-line="45" selection-end-column="7" />
+            <state relative-caret-position="382">
+              <caret line="62" column="7" lean-forward="true" selection-start-line="60" selection-start-column="8" selection-end-line="62" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -34,8 +32,8 @@
       <file leaf-file-name="sessions_controller.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/sessions_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="10" column="50" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
+            <state relative-caret-position="361">
+              <caret line="19" column="5" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="19" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -43,8 +41,8 @@
       <file leaf-file-name="routes.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/routes.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="84" />
+            <state relative-caret-position="342">
+              <caret line="18" column="51" selection-start-line="18" selection-start-column="51" selection-end-line="18" selection-end-column="51" />
             </state>
           </provider>
         </entry>
@@ -116,8 +114,8 @@
         <option value="$PROJECT_DIR$/spec/controllers/api/v1/users_controller_spec.rb" />
         <option value="$PROJECT_DIR$/spec/controllers/api/v1/application_controller_spec.rb" />
         <option value="$PROJECT_DIR$/spec/requests/api/v1/users_spec.rb" />
-        <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/spec/requests/api/v1/sessions_spec.rb" />
+        <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/controllers/api/v1/sessions_controller.rb" />
       </list>
     </option>
@@ -340,7 +338,7 @@
       <workItem from="1528041632872" duration="19637000" />
       <workItem from="1528098498382" duration="7611000" />
       <workItem from="1528180358364" duration="4757000" />
-      <workItem from="1528269891245" duration="3532000" />
+      <workItem from="1528269891245" duration="3796000" />
     </task>
     <task id="LOCAL-00001" summary="Comentário Inicial">
       <created>1528044744633</created>
@@ -353,7 +351,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35537000" />
+    <option name="totallyTimeSpent" value="35801000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -637,24 +635,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+    <entry file="file://$PROJECT_DIR$/spec/requests/api/v1/sessions_spec.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="84" />
+        <state relative-caret-position="382">
+          <caret line="62" column="7" lean-forward="true" selection-start-line="60" selection-start-column="8" selection-end-line="62" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spec/requests/api/v1/sessions_spec.rb">
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="45" column="7" selection-start-line="35" selection-start-column="4" selection-end-line="45" selection-end-column="7" />
+        <state relative-caret-position="342">
+          <caret line="18" column="51" selection-start-line="18" selection-start-column="51" selection-end-line="18" selection-end-column="51" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/sessions_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="50" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
+        <state relative-caret-position="361">
+          <caret line="19" column="5" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="19" selection-end-column="5" />
         </state>
       </provider>
     </entry>
