@@ -1,3 +1,7 @@
 class Subgrupo < ApplicationRecord
-  # belongs_to :grupo_conta
+  belongs_to :grupo_conta
+
+
+  validates_presence_of :nome, :grupo_conta_id
+  # validates :nome, :grupo_conta_id, presence: true
 end
