@@ -16,7 +16,6 @@ ActiveRecord::Schema.define(version: 20180607000738) do
   enable_extension "plpgsql"
 
   create_table "conta", force: :cascade do |t|
-    t.bigint   "codigo"
     t.string   "nome"
     t.integer  "numero"
     t.integer  "agencia"
@@ -29,7 +28,6 @@ ActiveRecord::Schema.define(version: 20180607000738) do
   end
 
   create_table "grupo_conta", force: :cascade do |t|
-    t.bigint   "codigo"
     t.string   "nome"
     t.bigint   "referencia"
     t.datetime "created_at", null: false
@@ -37,7 +35,6 @@ ActiveRecord::Schema.define(version: 20180607000738) do
   end
 
   create_table "items", force: :cascade do |t|
-    t.bigint   "codigo"
     t.string   "nome"
     t.string   "referencia"
     t.string   "tipo"
@@ -48,7 +45,6 @@ ActiveRecord::Schema.define(version: 20180607000738) do
   end
 
   create_table "movimento_conta", force: :cascade do |t|
-    t.bigint   "codigo"
     t.datetime "data"
     t.string   "centro_custo"
     t.decimal  "valor",          precision: 10, scale: 2
@@ -65,20 +61,22 @@ ActiveRecord::Schema.define(version: 20180607000738) do
   end
 
   create_table "movimentos", force: :cascade do |t|
-    t.bigint   "codigo"
     t.datetime "data"
     t.string   "centro_custo"
     t.decimal  "valor",        precision: 10, scale: 2
     t.string   "observacao"
     t.string   "tipo"
+    t.integer  "item_id"
     t.integer  "conta_id"
+    t.integer  "user_id"
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
     t.index ["conta_id"], name: "index_movimentos_on_conta_id", using: :btree
+    t.index ["item_id"], name: "index_movimentos_on_item_id", using: :btree
+    t.index ["user_id"], name: "index_movimentos_on_user_id", using: :btree
   end
 
   create_table "saldos", force: :cascade do |t|
-    t.bigint   "codigo"
     t.datetime "data"
     t.decimal  "saldo",      precision: 10, scale: 2
     t.datetime "created_at",                          null: false
@@ -86,7 +84,6 @@ ActiveRecord::Schema.define(version: 20180607000738) do
   end
 
   create_table "subgrupos", force: :cascade do |t|
-    t.bigint   "codigo"
     t.string   "nome"
     t.string   "referencia"
     t.integer  "grupo_conta_id"
@@ -120,5 +117,7 @@ ActiveRecord::Schema.define(version: 20180607000738) do
   add_foreign_key "movimento_conta", "movimentos"
   add_foreign_key "movimento_conta", "users"
   add_foreign_key "movimentos", "conta", column: "conta_id"
+  add_foreign_key "movimentos", "items"
+  add_foreign_key "movimentos", "users"
   add_foreign_key "subgrupos", "grupo_conta", column: "grupo_conta_id"
 end

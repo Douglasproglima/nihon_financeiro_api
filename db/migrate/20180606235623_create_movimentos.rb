@@ -6,7 +6,9 @@ class CreateMovimentos < ActiveRecord::Migration[5.0]
       t.decimal :valor, precision: 10, scale: 2
       t.string :observacao
       t.string :tipo
+      t.references :item, foreign_key: true
       t.references :conta, foreign_key: true
+      t.references :user, foreign_key: true
 
       t.timestamps
     end
