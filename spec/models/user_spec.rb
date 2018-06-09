@@ -43,7 +43,7 @@ RSpec.describe User, type: :model do
   #Teste ao qual o usuário poderá ter muitas:
   # Contas, Movimentos e Movimento X Contas
 
-  # OBS: O destroy garante que ao excluir o usuários todos os registros referentes as entidades
+  # OBS: O destroy garante que ao excluir o usuário, todos os registros referentes as entidades
   # relacionadas serão excluídas.
   it { is_expected.to have_many(:contas).dependent(:destroy) }
   it { is_expected.to have_many(:movimentos).dependent(:destroy) }
