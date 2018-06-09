@@ -3,6 +3,9 @@ require 'rails_helper'
 RSpec.describe Subgrupo, type: :model do
   let(:subgrupo) { build(:subgrupo) }
 
+  # OBS: O destroy garante que ao excluir o subgrupo será excluido os itens relacionados
+  it { is_expected.to have_many(:items).dependent(:destroy) }
+
   context 'Quando for novo' do
     # it { expect(subgrupo).not_to be_done }
   end
