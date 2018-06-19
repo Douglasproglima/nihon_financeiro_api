@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180607000738) do
+ActiveRecord::Schema.define(version: 20180619084139) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,21 @@ ActiveRecord::Schema.define(version: 20180607000738) do
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.index ["user_id"], name: "index_conta_on_user_id", using: :btree
+  end
+
+  create_table "empresas", force: :cascade do |t|
+    t.string   "nome"
+    t.string   "razao_social"
+    t.string   "cnpj"
+    t.string   "telefone"
+    t.string   "telefone2"
+    t.string   "contato"
+    t.string   "email"
+    t.boolean  "ativo",        default: true
+    t.integer  "user_id"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.index ["user_id"], name: "index_empresas_on_user_id", using: :btree
   end
 
   create_table "grupo_conta", force: :cascade do |t|
@@ -112,6 +127,7 @@ ActiveRecord::Schema.define(version: 20180607000738) do
   end
 
   add_foreign_key "conta", "users"
+  add_foreign_key "empresas", "users"
   add_foreign_key "items", "subgrupos"
   add_foreign_key "movimento_conta", "conta", column: "conta_id"
   add_foreign_key "movimento_conta", "movimentos"
