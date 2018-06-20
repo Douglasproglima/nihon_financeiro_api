@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :movimento_contas do
+  factory :movimento_conta do
     id 1
     data {Faker::Business.credit_card_expiry_date}
     centro_custo {Faker::Lorem.sentence}

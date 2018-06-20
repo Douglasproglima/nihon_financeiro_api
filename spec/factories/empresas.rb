@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :empresas do
+  factory :empresa do
     id 1
     nome {Faker::Lorem.sentence(100)}
     telefone {Faker::Number.number(10)}
