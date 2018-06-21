@@ -7,4 +7,11 @@ FactoryGirl.define do
     updated_at {Faker::Business.credit_card_expiry_date}
   end
 
+
+  #Gera dados manuais
+  # factory :grupo_conta do
+  #   id 1
+  #   nome "Grupo Conta 0001"
+  #   referencia 1002121
+  # end
 end
