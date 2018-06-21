@@ -3,8 +3,9 @@ require 'rails_helper'
 RSpec.describe 'Contas API' do
 
   #HOST's
-  before { host! 'api.nihon_financeiro.test' }
-  # before { host! 'api.localhost.test' }
+  # before { host! 'api.nihon_financeiro.dev' } //Não está funcionando com esse host
+  # before { host! 'api.nihon_financeiro.test' } //Não está funcionando com esse host
+  before { host! 'api.localhost.dev' }
 
   let!(:user) { create(:user) }  #cria o usuário
   let(:headers) do
@@ -21,7 +22,7 @@ RSpec.describe 'Contas API' do
 
       #create_list(:entidade, numero_registros_que_vao_ser_criados, entidade_relacionada linha 5)
       create_list(:conta, 5, user_id: user.id)
-      get '/contas ', params: {}, headers: headers
+      get '/contas', params: {}, headers: headers
     end
 
     #Os Testes
@@ -31,7 +32,7 @@ RSpec.describe 'Contas API' do
 
     #espera que o json_body retorne 5 contas do banco de dados
     it 'Retorna as 5 contas criadas do banco de dados' do
-      expect(json_body[:conta].count).to eq(5)
+      expect(json_body[:contas].count).to eq(5)
     end
   end
 
