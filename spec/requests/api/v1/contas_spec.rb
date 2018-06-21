@@ -36,6 +36,21 @@ RSpec.describe 'Contas API' do
     end
   end
 
+  describe 'GET /contas/:id' do
+    let(:conta){ create(:conta, user_id: user.id) }
+
+    before { get "/contas/#{conta.id}", params: {}, headers: headers }
+
+    it 'Retorna o código status: 200 OK' do
+      expect(response).to have_http_status(200)
+    end
+
+    #espera que o json_body retorne 5 contas do banco de dados
+    it 'Retorna a conta em JSON' do
+      expect(json_body[:nome]).to eq(conta.nome)
+    end
+  end
+
   #Verbo POST
   describe 'POST /contas' do
 

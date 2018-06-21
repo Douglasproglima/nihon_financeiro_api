@@ -17,7 +17,7 @@ RSpec.describe 'Empresas API' do
   end
 
   #Verbo GET
-  describe 'GET /empresas/:id' do
+  describe 'GET /empresas' do
     before do
 
       # create_list(:entidade, numero_registros_que_vao_ser_criados, entidade_relacionada linha 5)
@@ -33,6 +33,21 @@ RSpec.describe 'Empresas API' do
     #espera que o json_body retorne 5 contas do banco de dados
     it 'Retorna as 5 contas criadas do banco de dados' do
       expect(json_body[:empresas].count).to eq(1)
+    end
+  end
+
+  describe 'GET /empresas/:id' do
+    let(:empresa){ create(:empresa, user_id: user.id) }
+
+    before { get "/empresas/#{empresa.id}", params: {}, headers: headers }
+
+    it 'Retorna o código status: 200 OK' do
+      expect(response).to have_http_status(200)
+    end
+
+    #espera que o json_body retorne 5 contas do banco de dados
+    it 'Retorna a empresa em JSON' do
+      expect(json_body[:nome]).to eq(empresa.nome)
     end
   end
 
