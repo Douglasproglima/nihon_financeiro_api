@@ -10,6 +10,7 @@ class User < ApplicationRecord
 
   #Entidades que usuário está relacionado
   has_many :contas, dependent: :destroy
+  has_many :empresas, dependent: :destroy
   has_many :movimentos, dependent: :destroy
   has_many :movimento_contas, dependent: :destroy
 

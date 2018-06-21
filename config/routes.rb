@@ -18,6 +18,7 @@ Rails.application.routes.draw do
       resources :users, only: [:show, :create, :update, :destroy]
       resources :sessions, only: [:create, :destroy]
       resources :contas, only: [:index]
+      resources :empresas, only: [:index]
       # resources :tasks, only: [:index, :show, :create, :update, :destroy]
     end
   end

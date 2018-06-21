@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Empresa, type: :model do
-  let(:empresa) { build(:empresa) }
+  let(:empresa) { FactoryGirl.build(:empresa) }
 
   context 'Quando for novo' do
     # it { expect(empresa).not_to be_done }

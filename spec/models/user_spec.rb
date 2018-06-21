@@ -46,6 +46,7 @@ RSpec.describe User, type: :model do
   # OBS: O destroy garante que ao excluir o usuário, todos os registros referentes as entidades
   # relacionadas serão excluídas.
   it { is_expected.to have_many(:contas).dependent(:destroy) }
+  it { is_expected.to have_many(:empresas).dependent(:destroy) }
   it { is_expected.to have_many(:movimentos).dependent(:destroy) }
   it { is_expected.to have_many(:movimento_contas).dependent(:destroy) }
 
