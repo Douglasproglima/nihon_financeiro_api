@@ -2,7 +2,7 @@ class Api::V1::SubgruposController < ApplicationController
   respond_to :json
 
   def index
-    subgrupos = subgrupos.findAll()
+    subgrupos = subgrupos.all()
     render json: { subgrupos: subgrupos }, status: 200
   end
 
