@@ -24,10 +24,10 @@ API - Backend Ruby on Rails
 	
 Exemplo de Requisição:
 -------------
-	GET    -> http://www.nihon_financeiro.com:80/contas_receber/21
-	POST   -> http://www.nihon_financeiro.com:80/contas_receber
-    PUT    -> http://www.nihon_financeiro.com:80/contas_receber/21
-    DELETE -> http://www.nihon_financeiro.com:80/contas_receber/21
+	GET    -> http://www.nihon_financeiro.com/contas_receber/21
+	POST   -> http://www.nihon_financeiro.com/contas_receber
+    PUT    -> http://www.nihon_financeiro.com/contas_receber/21
+    DELETE -> http://www.nihon_financeiro.com/contas_receber/21
 
 ----------------------------
 Este projeto foi desenvolvido por [Douglas Lima](https://github.com/douglasproglima). Ele segue seu código de conduta e diretrizes de contribuição.
