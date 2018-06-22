@@ -45,7 +45,7 @@ RSpec.describe 'Contas API' do
       expect(response).to have_http_status(200)
     end
 
-    #espera que o json_body retorne 5 contas do banco de dados
+    #espera que o json_body com a conta do banco de dados
     it 'Retorna a conta em JSON' do
       expect(json_body[:nome]).to eq(conta.nome)
     end
@@ -53,7 +53,30 @@ RSpec.describe 'Contas API' do
 
   #Verbo POST
   describe 'POST /contas' do
+    before do
+      post '/contas', params: { conta: conta_params }.to_json, headers: headers
+    end
 
+    context 'Quando os parâmetros são válidos' do
+
+      let(:conta_params) { attributes_for(:conta) }
+
+      it 'Retorna o código status: 201 - Registro Criado' do
+        expect(response).to have_http_status(201)
+      end
+
+      it 'Salvar registro no banco de dados' do
+        expect( Conta.find_by(nome: conta_params[:nome]) ).not_to be_nil #conta_params[:nome]).count ).to eq(1)
+      end
+
+      it 'Retorna o JSON com o registro criado' do
+        expect(json_body[:nome]).to eq(conta_params[:nome])
+      end
+
+      it 'Verifica se foi relacionado o usuário corrente a conta criada' do
+        expect(json_body[:user_id]).to eq(user.id)
+      end
+    end
   end
 
   #Verbo PUT
