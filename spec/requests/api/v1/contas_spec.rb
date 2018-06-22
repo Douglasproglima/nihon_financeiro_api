@@ -77,6 +77,26 @@ RSpec.describe 'Contas API' do
         expect(json_body[:user_id]).to eq(user.id)
       end
     end
+
+    context 'Quando os parâmetros são inválidos' do
+      let(:conta_params) { attributes_for(:conta, nome: ' ') } #Passando o atributo nome vázio
+
+      it 'Retorna o código status: 422' do
+        expect(response).to have_http_status(422)
+      end
+
+      it 'Não foi salvo o registro no banco de dados' do
+        expect( Conta.find_by(nome: conta_params[:nome]) ).to be_nil #Espera que seja null
+      end
+
+      it 'Retornar o JSON com o erro referente ao atributo Nome' do
+        # expect(json_body).to have_key(:errors) #Verifica se há erros no geral
+
+        #Verifica se há erro no array :errors referente ao atributo nome
+        expect(json_body[:errors]).to have_key(:nome)
+
+      end
+    end
   end
 
   #Verbo PUT

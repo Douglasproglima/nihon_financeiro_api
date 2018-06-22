@@ -17,9 +17,11 @@ class Api::V1::ContasController < ApplicationController
     # conta = Conta.new(user_id: current_user.id)
     conta = current_user.contas.build(conta_params)
 
-    conta.save
-
-    render json: conta, status: 201
+    if conta.save
+      render json: conta, status: 201
+    else
+      render json: { errors: conta.errors }, status: 422
+    end
   end
 
   private
