@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Grupo Contas da API', type: :request do
 
-  let!(:grupo_conta) { create(:grupo_conta) }
+  # let!(:grupo_conta) { create(:grupo_conta) }
   # let(:grupo_conta_id) { grupo_conta.id }
   let(:headers) do
     {

@@ -4,7 +4,7 @@ class Api::V1::GrupoContasController < ApplicationController
   respond_to :json
 
   def index
-    grupo_contas = grupo_contas.all()
+    grupo_contas = GrupoConta.all()
     render json: { grupo_contas: grupo_contas }, status: 200
     # render json: grupo_contas, status: 200
   end
