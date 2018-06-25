@@ -61,7 +61,7 @@ RSpec.describe 'Grupo Contas da API', type: :request do
 
       let(:grupo_conta_params) { attributes_for(:grupo_conta) }
 
-      it 'Retorna o código status: 201 - Registro Criado' do
+      it 'Retorna o código status: 201 - Registro Criado.' do
         expect(response).to have_http_status(201)
       end
 
