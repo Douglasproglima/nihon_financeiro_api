@@ -7,8 +7,6 @@ FactoryGirl.define do
     cnpj {Faker::Number.number(14)}
     contato {Faker::Lorem.sentence(20)}
     ativo true
-    created_at {Faker::Business.credit_card_expiry_date}
-    updated_at {Faker::Business.credit_card_expiry_date}
     user
   end
 
