@@ -18,6 +18,7 @@ Rails.application.routes.draw do
       resources :users, only: [:show, :create, :update, :destroy]
       resources :sessions, only: [:create, :destroy]
 <<<<<<< HEAD
+<<<<<<< HEAD
       resources :contas, only: [:index, :show, :create, :update, :destroy]
       resources :empresas, only: [:index, :show, :create, :update, :destroy]
       resources :grupo_contas, only: [:index, :show, :create, :update, :destroy]
@@ -35,6 +36,16 @@ Rails.application.routes.draw do
       resources :movimentos, only: [:index, :show]
       resources :saldos, only: [:index, :show]
       resources :subgrupos, only: [:index, :show]
+>>>>>>> add_new_entidades
+=======
+      resources :contas, only: [:index, :show, :create, :update, :destroy]
+      resources :empresas, only: [:index, :show, :create, :update, :destroy]
+      resources :grupo_contas, only: [:index, :show, :create, :update, :destroy]
+      resources :itens, only: [:index, :show, :create, :update, :destroy]
+      resources :movimento_contas, only: [:index, :show, :create, :update, :destroy]
+      resources :movimentos, only: [:index, :show, :create, :update, :destroy]
+      resources :saldos, only: [:index, :show, :create, :update, :destroy]
+      resources :subgrupos, only: [:index, :show, :create, :update, :destroy]
 >>>>>>> add_new_entidades
       # resources :tasks, only: [:index, :show, :create, :update, :destroy]
     end

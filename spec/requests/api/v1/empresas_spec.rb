@@ -53,7 +53,50 @@ RSpec.describe 'Empresas API' do
 
   #Verbo POST
   describe 'POST /empresas' do
+    before do
+      post '/empresas', params: { empresa: empresa_params }.to_json, headers: headers
+    end
 
+    context 'Quando os parâmetros são válidos' do
+
+      let(:empresa_params) { attributes_for(:empresa) }
+
+      it 'Retorna o código status: 201 - Registro Criado' do
+        expect(response).to have_http_status(201)
+      end
+
+      it 'Salvar registro no banco de dados' do
+        expect( Empresa.find_by(nome: empresa_params[:nome]) ).not_to be_nil #empresa_params[:nome]).count ).to eq(1)
+      end
+
+      it 'Retorna o JSON com o registro criado' do
+        expect(json_body[:nome]).to eq(empresa_params[:nome])
+      end
+
+      it 'Verifica se foi relacionado o usuário corrente a conta criada' do
+        expect(json_body[:user_id]).to eq(user.id)
+      end
+    end
+
+    context 'Quando os parâmetros são inválidos' do
+      let(:empresa_params) { attributes_for(:empresa, nome: ' ') } #Passando o atributo nome vázio
+
+      it 'Retorna o código status: 422' do
+        expect(response).to have_http_status(422)
+      end
+
+      it 'Não foi salvo o registro no banco de dados' do
+        expect( Empresa.find_by(nome: empresa_params[:nome]) ).to be_nil #Espera que seja null
+      end
+
+      it 'Retornar o JSON com o erro referente ao atributo Nome' do
+        # expect(json_body).to have_key(:errors) #Verifica se há erros no geral
+
+        #Verifica se há erro no array :errors referente ao atributo nome
+        expect(json_body[:errors]).to have_key(:nome)
+
+      end
+    end
   end
 
   #Verbo PUT
