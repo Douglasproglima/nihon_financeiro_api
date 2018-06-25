@@ -17,6 +17,16 @@ class Api::V1::GrupoContasController < ApplicationController
     end
   end
 
+  def create
+    grupo_conta = GrupoConta.new(grupo_conta_params)
+
+    if grupo_conta.save
+      render json: grupo_conta, status: 201
+    else
+      render json: { errors: grupo_conta.errors }, status: 422
+    end
+  end
+
   private
   def grupo_conta_params
     params.require(:grupo_conta).permit(:nome, :referencia)

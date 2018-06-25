@@ -19,7 +19,7 @@ Rails.application.routes.draw do
       resources :sessions, only: [:create, :destroy]
       resources :contas, only: [:index, :show, :create]
       resources :empresas, only: [:index, :show]
-      resources :grupo_contas, only: [:index, :show]
+      resources :grupo_contas, only: [:index, :show, :create, :update, :destroy]
       resources :itens, only: [:index, :show]
       resources :movimento_contas, only: [:index, :show]
       resources :movimentos, only: [:index, :show]
