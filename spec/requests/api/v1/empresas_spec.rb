@@ -61,7 +61,7 @@ RSpec.describe 'Empresas API' do
 
       let(:empresa_params) { attributes_for(:empresa) }
 
-      it 'Retorna o código status: 201 - Registro Criado' do
+      it 'Retorna o código status: 201 - Registro Criado.' do
         expect(response).to have_http_status(201)
       end
 
