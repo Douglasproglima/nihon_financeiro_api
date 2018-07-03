@@ -10,6 +10,8 @@ RSpec.describe GrupoConta, type: :model do
     # it { expect(grupo_conta).not_to be_done }
   end
 
+  it { is_expected.to belong_to(:grupo_conta) }
+
   it { is_expected.to validate_presence_of :nome }
   it { is_expected.to validate_presence_of :referencia }
 

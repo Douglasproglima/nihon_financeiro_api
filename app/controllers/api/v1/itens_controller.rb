@@ -1,2 +1,33 @@
 class Api::V1::ItensController < ApplicationController
+  before_action :authenticate_with_token!
+  respond_to :json
+
+  def index
+    itens = Item.all()
+    render json: { itens: itens }, status: 200
+  end
+
+  def show
+    begin
+      item = Item.find(params[:id])
+      render json: item, status: 200
+    rescue
+      head 404
+    end
+  end
+
+  def create
+    item = Item.new(item_params)
+
+    if item.save
+      render json: item, status: 201
+    else
+      render json: { errors: item.errors }, status: 422
+    end
+  end
+
+  private
+  def item_params
+    params.require(:item).permit(:nome, :referencia, :tipo, :subgrupo_id)
+  end
 end

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe 'Grupo Contas da API', type: :request do
-  let!(:grupo_conta) { create(:grupo_conta) }
+RSpec.describe 'Item da API', type: :request do
+  let!(:item) { create(:item) }
   let!(:user) { create(:user) }
   let(:headers) do
     {
@@ -16,11 +16,11 @@ RSpec.describe 'Grupo Contas da API', type: :request do
   before { host! 'api.localhost.dev' }
 
   #Verbo GET
-  describe 'GET /grupo_contas' do
+  describe 'GET /itens' do
     before do
       #create_list(:entidade, numero_registros_que_vao_ser_criados, entidade_relacionada linha 5)
-      create_list(:grupo_conta, 5)
-      get '/grupo_contas', params: {}, headers: headers
+      create_list(:item, 5)
+      get '/itens', params: {}, headers: headers
     end
 
     #Os Testes
@@ -30,20 +30,20 @@ RSpec.describe 'Grupo Contas da API', type: :request do
 
     #espera que o json_body retorne 5 contas do banco de dados
     it 'Retorna os 5 grupos contas criados do banco de dados' do
-      expect(json_body[:grupo_contas].count).to eq(6)
+      expect(json_body[:itens].count).to eq(6)
     end
   end
 
   #Verbo GET /:id
-  describe 'GET /grupo_contas/:id' do
-    let(:grupo_conta) { create(:grupo_conta) }
+  describe 'GET /itens/:id' do
+    let(:item) { create(:item) }
 
     before do
-      get "/grupo_contas/#{grupo_conta.id}", params: {}, headers: headers
+      get "/itens/#{item.id}", params: {}, headers: headers
     end
 
-    it 'Retorna o grupo conta' do
-      expect(json_body[:nome]).to eq(grupo_conta.nome)
+    it 'Retorna o item' do
+      expect(json_body[:nome]).to eq(item.nome)
     end
 
     it 'Retorna o código status: 200 OK' do
@@ -52,37 +52,39 @@ RSpec.describe 'Grupo Contas da API', type: :request do
   end
 
   #Verbo POST
-  describe 'POST /grupo_contas' do
+  describe 'POST /itens' do
     before do
-      post '/grupo_contas', params: { grupo_conta: grupo_conta_params }.to_json, headers: headers
+      post '/itens', params: { item: item_params }.to_json, headers: headers
     end
 
     context 'Quando os parâmetros são válidos' do
 
-      let(:grupo_conta_params) { attributes_for(:grupo_conta) }
+      let(:item_params) { attributes_for(:item) }
 
       it 'Retorna o código status: 201 - Registro Criado.' do
         expect(response).to have_http_status(201)
       end
 
       it 'Salvar registro no banco de dados' do
-        expect( GrupoConta.find_by(nome: grupo_conta_params[:nome]) ).not_to be_nil #grupo_conta_params[:nome]).count ).to eq(1)
+        # byebug
+        expect( Item.find_by(nome: item_params[:nome])).not_to be_nil #subgrupo_params[:nome]).count ).to eq(1)
       end
 
       it 'Retorna o JSON com o registro criado' do
-        expect(json_body[:nome]).to eq(grupo_conta_params[:nome])
+        # byebug
+        expect(json_body[:nome]).to eq(item_params [:nome])
       end
     end
 
     context 'Quando os parâmetros são inválidos' do
-      let(:grupo_conta_params) { attributes_for(:grupo_conta, nome: ' ') } #Passando o atributo nome vázio
+      let(:item_params ) { attributes_for(:item, nome: ' ') } #Passando o atributo nome vázio
 
       it 'Retorna o código status: 422' do
         expect(response).to have_http_status(422)
       end
 
       it 'Não foi salvo o registro no banco de dados' do
-        expect( GrupoConta.find_by(nome: grupo_conta_params[:nome]) ).to be_nil #Espera que seja null
+        expect( Item.find_by(nome: item_params[:nome]) ).to be_nil #Espera que seja null
       end
 
       it 'Retornar o JSON com o erro referente ao atributo Nome' do
@@ -96,12 +98,12 @@ RSpec.describe 'Grupo Contas da API', type: :request do
   end
 
   #Verbo PUT
-  describe 'PUT /grupo_contas' do
+  describe 'PUT /itens' do
 
   end
 
   #Verbo DELETE
-  describe 'DELETE /grupo_contas' do
+  describe 'DELETE /itens' do
 
   end
 end
