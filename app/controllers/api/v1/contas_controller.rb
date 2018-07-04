@@ -24,6 +24,16 @@ class Api::V1::ContasController < ApplicationController
     end
   end
 
+  def update
+    conta = current_user.contas.find(params[:id])
+
+    if conta.update_attributes(conta_params)
+      render json: conta, status: 200
+    else
+      render json: { errors: conta.errors }, status: 422
+    end
+  end
+
   private
   def conta_params
     params.require(:conta).permit(:nome, :numero, :agencia, :saldo, :saldo_inicial)
