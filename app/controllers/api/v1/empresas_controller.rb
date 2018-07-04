@@ -23,6 +23,16 @@ class Api::V1::EmpresasController < ApplicationController
     end
   end
 
+  def update
+    empresa = current_user.empresas.find(params[:id])
+
+    if empresa.update_attributes(empresa_params)
+      render json: empresa, status: 200
+    else
+      render json: { errors: empresa.errors }, status: 422
+    end
+  end
+
   private
   def empresa_params
     params.require(:empresa).permit(:nome, :telefone, :email, :cnpj, :contato, :ativo, :user_id)

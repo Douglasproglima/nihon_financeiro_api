@@ -100,7 +100,43 @@ RSpec.describe 'SubGrupo da API', type: :request do
 
   #Verbo PUT
   describe 'PUT /subgrupos' do
+    let(:subgrupo) { create(:subgrupo) }
 
+    before do
+      put "/subgrupos/#{subgrupo.id}", params: { subgrupo: subgrupo_params }.to_json, headers: headers
+    end
+
+    context 'Parâmetros válidos' do
+      let(:subgrupo_params){{ nome: 'Novo SubGrupo' }}
+
+      it 'Retorna o código status: 200 - Registro Criado' do
+        expect(response).to have_http_status(200)
+      end
+
+      it 'Retorna o JSON com o registro atualizado' do
+        expect(json_body[:nome]).to eq(subgrupo_params[:nome])
+      end
+
+      it 'Atualiza registro no banco de dados' do
+        expect( Subgrupo.find_by(nome: subgrupo_params[:nome]) ).not_to be_nil
+      end
+    end
+
+    context 'Parâmetros inválidos' do
+      let(:subgrupo_params) { attributes_for(:subgrupo, nome: ' ') } #Passando o atributo nome vázio
+
+      it 'Retorna o código status: 422' do
+        expect(response).to have_http_status(422)
+      end
+
+      it 'Retornar o JSON com o erro referente ao atributo Nome' do
+        expect(json_body[:errors]).to have_key(:nome)
+      end
+
+      it 'Não foi salvo o registro no banco de dados' do
+        expect( Subgrupo.find_by(nome: subgrupo_params[:nome]) ).to be_nil #Espera que seja null
+      end
+    end
   end
 
   #Verbo DELETE

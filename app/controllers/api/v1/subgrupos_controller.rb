@@ -26,6 +26,16 @@ class Api::V1::SubgruposController < ApplicationController
     end
   end
 
+  def update
+    subgrupo = Subgrupo.find(params[:id])
+
+    if subgrupo.update_attributes(subgrupo_params)
+      render json: subgrupo, status: 200
+    else
+      render json: { errors: subgrupo.errors }, status: 422
+    end
+  end
+
   private
   def subgrupo_params
     params.require(:subgrupo).permit(:nome, :grupo_conta_id)

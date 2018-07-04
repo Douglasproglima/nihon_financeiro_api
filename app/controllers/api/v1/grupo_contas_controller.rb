@@ -27,6 +27,16 @@ class Api::V1::GrupoContasController < ApplicationController
     end
   end
 
+  def update
+    grupo_conta = GrupoConta.find(params[:id])
+
+    if grupo_conta.update_attributes(grupo_conta_params)
+      render json: grupo_conta, status: 200
+    else
+      render json: { errors: grupo_conta.errors }, status: 422
+    end
+  end
+
   private
   def grupo_conta_params
     params.require(:grupo_conta).permit(:nome, :referencia)
