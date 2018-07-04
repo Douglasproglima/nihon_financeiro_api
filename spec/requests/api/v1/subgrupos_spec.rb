@@ -107,7 +107,7 @@ RSpec.describe 'SubGrupo da API', type: :request do
     end
 
     context 'Parâmetros válidos' do
-      let(:subgrupo_params){{ nome: 'Novo Grupo Conta' }}
+      let(:subgrupo_params){{ nome: 'Novo SubGrupo' }}
 
       it 'Retorna o código status: 200 - Registro Criado' do
         expect(response).to have_http_status(200)

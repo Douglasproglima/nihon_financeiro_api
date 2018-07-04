@@ -29,7 +29,7 @@ RSpec.describe 'Item da API', type: :request do
     end
 
     #espera que o json_body retorne 5 contas do banco de dados
-    it 'Retorna os 5 grupos contas criados do banco de dados' do
+    it 'Retorna os 5 itens criados do banco de dados' do
       expect(json_body[:itens].count).to eq(6)
     end
   end
@@ -67,7 +67,7 @@ RSpec.describe 'Item da API', type: :request do
 
       it 'Salvar registro no banco de dados' do
         # byebug
-        expect( Item.find_by(nome: item_params[:nome])).not_to be_nil #subgrupo_params[:nome]).count ).to eq(1)
+        expect( Item.find_by(nome: item_params[:nome])).not_to be_nil #item_params[:nome]).count ).to eq(1)
       end
 
       it 'Retorna o JSON com o registro criado' do
@@ -99,7 +99,43 @@ RSpec.describe 'Item da API', type: :request do
 
   #Verbo PUT
   describe 'PUT /itens' do
+    let(:item) { create(:item) }
 
+    before do
+      put "/itens/#{item.id}", params: { item: item_params }.to_json, headers: headers
+    end
+
+    context 'Parâmetros válidos' do
+      let(:item_params){{ nome: 'Novo Item' }}
+
+      it 'Retorna o código status: 200 - Registro Criado' do
+        expect(response).to have_http_status(200)
+      end
+
+      it 'Retorna o JSON com o registro atualizado' do
+        expect(json_body[:nome]).to eq(item_params[:nome])
+      end
+
+      it 'Atualiza registro no banco de dados' do
+        expect( Item.find_by(nome: item_params[:nome]) ).not_to be_nil
+      end
+    end
+
+    context 'Parâmetros inválidos' do
+      let(:item_params) { attributes_for(:item, nome: ' ') } #Passando o atributo nome vázio
+
+      it 'Retorna o código status: 422' do
+        expect(response).to have_http_status(422)
+      end
+
+      it 'Retornar o JSON com o erro referente ao atributo Nome' do
+        expect(json_body[:errors]).to have_key(:nome)
+      end
+
+      it 'Não foi salvo o registro no banco de dados' do
+        expect( Item.find_by(nome: item_params[:nome]) ).to be_nil #Espera que seja null
+      end
+    end
   end
 
   #Verbo DELETE

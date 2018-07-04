@@ -26,6 +26,16 @@ class Api::V1::ItensController < ApplicationController
     end
   end
 
+  def update
+    item = Item.find(params[:id])
+
+    if item.update_attributes(item_params)
+      render json: item, status: 200
+    else
+      render json: { errors: item.errors }, status: 422
+    end
+  end
+
   private
   def item_params
     params.require(:item).permit(:nome, :referencia, :tipo, :subgrupo_id)
