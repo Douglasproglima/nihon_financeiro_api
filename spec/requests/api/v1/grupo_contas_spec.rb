@@ -97,7 +97,43 @@ RSpec.describe 'Grupo Contas da API', type: :request do
 
   #Verbo PUT
   describe 'PUT /grupo_contas' do
+    let(:grupo_conta) { create(:grupo_conta) }
 
+    before do
+      put "/grupo_contas/#{grupo_conta.id}", params: { grupo_conta: grupo_conta_params }.to_json, headers: headers
+    end
+
+    context 'Parâmetros válidos' do
+      let(:grupo_conta_params){{ nome: 'Novo Grupo Conta' }}
+
+      it 'Retorna o código status: 200 - Registro Criado' do
+        expect(response).to have_http_status(200)
+      end
+
+      it 'Retorna o JSON com o registro atualizado' do
+        expect(json_body[:nome]).to eq(grupo_conta_params[:nome])
+      end
+
+      it 'Atualiza registro no banco de dados' do
+        expect( GrupoConta.find_by(nome: grupo_conta_params[:nome]) ).not_to be_nil
+      end
+    end
+
+    context 'Parâmetros inválidos' do
+      let(:grupo_conta_params) { attributes_for(:conta, nome: ' ') } #Passando o atributo nome vázio
+
+      it 'Retorna o código status: 422' do
+        expect(response).to have_http_status(422)
+      end
+
+      it 'Retornar o JSON com o erro referente ao atributo Nome' do
+        expect(json_body[:errors]).to have_key(:nome)
+      end
+
+      it 'Não foi salvo o registro no banco de dados' do
+        expect( GrupoConta.find_by(nome: grupo_conta_params[:nome]) ).to be_nil #Espera que seja null
+      end
+    end
   end
 
   #Verbo DELETE
