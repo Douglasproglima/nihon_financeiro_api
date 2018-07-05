@@ -141,6 +141,19 @@ RSpec.describe 'SubGrupo da API', type: :request do
 
   #Verbo DELETE
   describe 'DELETE /subgrupos' do
+    let!(:subgrupo) { create(:subgrupo) }
 
+    before do
+      delete "/subgrupos/#{subgrupo.id}", params: { }, headers: headers
+    end
+
+    it 'Retorna o código status: 204 - Registro Removido' do
+      expect(response).to have_http_status(204)
+    end
+
+    it 'Remove o registro do banco de dados' do
+      expect { Subgrupo.find(subgrupo.id) }.to raise_error(ActiveRecord::RecordNotFound)
+      # expect { Subgrupo.find_by(id: subgrupo.id).to be_nil
+    end
   end
 end

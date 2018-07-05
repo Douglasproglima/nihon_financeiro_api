@@ -36,6 +36,12 @@ class Api::V1::SubgruposController < ApplicationController
     end
   end
 
+  def destroy
+    subgrupo = Subgrupo.find(params[:id])
+    subgrupo.destroy
+    head 204
+  end
+
   private
   def subgrupo_params
     params.require(:subgrupo).permit(:nome, :grupo_conta_id)
