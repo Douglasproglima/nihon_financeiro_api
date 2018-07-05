@@ -140,6 +140,19 @@ RSpec.describe 'Item da API', type: :request do
 
   #Verbo DELETE
   describe 'DELETE /itens' do
+    let!(:item) { create(:item) }
 
+    before do
+      delete "/itens/#{item.id}", params: { }, headers: headers
+    end
+
+    it 'Retorna o código status: 204 - Registro Removido' do
+      expect(response).to have_http_status(204)
+    end
+
+    it 'Remove o registro do banco de dados' do
+      expect { Item.find(item.id) }.to raise_error(ActiveRecord::RecordNotFound)
+      # expect { Item.find_by(id: item.id).to be_nil
+    end
   end
 end
