@@ -142,6 +142,19 @@ RSpec.describe 'Empresas API' do
 
   #Verbo DELETE
   describe 'DELETE /empresas' do
+    let!(:empresa) { create(:empresa, user_id: user.id) }
 
+    before do
+      delete "/empresas/#{empresa.id}", params: { }, headers: headers
+    end
+
+    it 'Retorna o código status: 204 - Registro Removido' do
+      expect(response).to have_http_status(204)
+    end
+
+    it 'Remove o registro do banco de dados' do
+      expect { Empresa.find(empresa.id) }.to raise_error(ActiveRecord::RecordNotFound)
+      # expect { Empresa.find_by(id: empresa.id).to be_nil
+    end
   end
 end
