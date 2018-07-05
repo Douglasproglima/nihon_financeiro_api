@@ -142,6 +142,19 @@ RSpec.describe 'Contas API' do
 
   #Verbo DELETE
   describe 'DELETE /contas' do
+    let!(:conta) { create(:conta, user_id: user.id) }
 
+    before do
+      delete "/contas/#{conta.id}", params: { }, headers: headers
+    end
+
+    it 'Retorna o código status: 204 - Registro Removido' do
+      expect(response).to have_http_status(204)
+    end
+
+    it 'Remove o registro do banco de dados' do
+      expect { Conta.find(conta.id) }.to raise_error(ActiveRecord::RecordNotFound)
+      # expect { Conta.find_by(id: conta.id).to be_nil
+    end
   end
 end

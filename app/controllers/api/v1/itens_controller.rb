@@ -36,6 +36,12 @@ class Api::V1::ItensController < ApplicationController
     end
   end
 
+  def destroy
+    item = Item.find(params[:id])
+    item.destroy
+    head 204
+  end
+
   private
   def item_params
     params.require(:item).permit(:nome, :referencia, :tipo, :subgrupo_id)

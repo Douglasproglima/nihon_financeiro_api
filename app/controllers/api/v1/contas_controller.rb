@@ -34,6 +34,12 @@ class Api::V1::ContasController < ApplicationController
     end
   end
 
+  def destroy
+    conta = current_user.contas.find(params[:id])
+    conta.destroy
+    head 204
+  end
+
   private
   def conta_params
     params.require(:conta).permit(:nome, :numero, :agencia, :saldo, :saldo_inicial)

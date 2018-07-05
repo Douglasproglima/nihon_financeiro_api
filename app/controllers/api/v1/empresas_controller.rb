@@ -33,6 +33,12 @@ class Api::V1::EmpresasController < ApplicationController
     end
   end
 
+  def destroy
+    empresa = current_user.empresas.find(params[:id])
+    empresa.destroy
+    head 204
+  end
+
   private
   def empresa_params
     params.require(:empresa).permit(:nome, :telefone, :email, :cnpj, :contato, :ativo, :user_id)

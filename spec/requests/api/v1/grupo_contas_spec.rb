@@ -138,6 +138,19 @@ RSpec.describe 'Grupo Contas da API', type: :request do
 
   #Verbo DELETE
   describe 'DELETE /grupo_contas' do
+    let!(:grupo_conta) { create(:grupo_conta) }
 
+    before do
+      delete "/grupo_contas/#{grupo_conta.id}", params: { }, headers: headers
+    end
+
+    it 'Retorna o código status: 204 - Registro Removido' do
+      expect(response).to have_http_status(204)
+    end
+
+    it 'Remove o registro do banco de dados' do
+      expect { GrupoConta.find(grupo_conta.id) }.to raise_error(ActiveRecord::RecordNotFound)
+      # expect { GrupoConta.find_by(id: grupo_conta.id).to be_nil
+    end
   end
 end
