@@ -37,6 +37,12 @@ class Api::V1::GrupoContasController < ApplicationController
     end
   end
 
+  def destroy
+    conta = GrupoConta.find(params[:id])
+    conta.destroy
+    head 204
+  end
+
   private
   def grupo_conta_params
     params.require(:grupo_conta).permit(:nome, :referencia)
