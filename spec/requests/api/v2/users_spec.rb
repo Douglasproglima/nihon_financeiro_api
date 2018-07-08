@@ -7,7 +7,7 @@ RSpec.describe 'Usuários da API', type: :request do
   let(:user_id) { user.id }
   let(:headers) do
     {
-        'Accept' => 'application/vnd.nihon_financeiro.v1',
+        'Accept' => 'application/vnd.nihon_financeiro.v2',
         'Content-Type' => Mime[:json].to_s,
         'Authorization' => user.auth_token
     }
