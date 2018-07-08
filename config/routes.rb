@@ -30,7 +30,6 @@ Rails.application.routes.draw do
 
     #API - Versão 2.0
     namespace :v2, path: '/', constraints: ApiVersionConstraint.new(version: 2, default: true) do
-
       #Define a rota para o controller User
       resources :users, only: [:show, :create, :update, :destroy]
       resources :sessions, only: [:create, :destroy]
@@ -41,7 +40,6 @@ Rails.application.routes.draw do
       resources :movimento_contas, only: [:index, :show, :create, :update, :destroy]
       resources :movimentos, only: [:index, :show, :create, :update, :destroy]
       resources :subgrupos, only: [:index, :show, :create, :update, :destroy]
-      # resources :tasks, only: [:index, :show, :create, :update, :destroy]
     end
   end
 
