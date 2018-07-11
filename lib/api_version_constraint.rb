@@ -7,7 +7,7 @@ class ApiVersionConstraint
 
   def matches?(req)
     #Versão default ou versão que o usuário específicou
-    @default || req.headers['Accept'].includes?("application/vnd.nihon_finanaceiro.v#{@version}")
+    @default || req.headers['Accept'].include?("application/vnd.nihon_finanaceiro.v#{@version}")
   end
 
 end
