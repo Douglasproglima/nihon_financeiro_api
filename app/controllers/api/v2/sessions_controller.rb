@@ -21,7 +21,6 @@ class Api::V2::SessionsController < ApplicationController
 
 
   private
-
   def sessions_params
     params.require(:session).permit(:email, :password)
   end
