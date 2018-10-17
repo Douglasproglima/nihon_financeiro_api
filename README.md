@@ -5,19 +5,19 @@ API do projeto de gestão financeira pessoal para brasileiros residentes no Jap�
 
 =======================
 TELA DE LOGIN:
-https://drive.google.com/drive/folders/1sHxm3I9nue9XFiIeFhoIaXKGFwuy7rE_
+https://github.com/Douglasproglima/nihon_financeiro_api/blob/master/Login.png
 
 DASHBOARD:
-https://drive.google.com/drive/folders/1sHxm3I9nue9XFiIeFhoIaXKGFwuy7rE_
+https://github.com/Douglasproglima/nihon_financeiro_api/blob/master/Dashboard.png
 
 CONFIGURAÇÔES:
-https://drive.google.com/drive/folders/1sHxm3I9nue9XFiIeFhoIaXKGFwuy7rE_
+https://github.com/Douglasproglima/nihon_financeiro_api/blob/master/Configurações.png
 
 RECEITAS:
-https://drive.google.com/drive/folders/1sHxm3I9nue9XFiIeFhoIaXKGFwuy7rE_
+https://github.com/Douglasproglima/nihon_financeiro_api/blob/master/Receitas.png
 
 DESPESAS:
-https://drive.google.com/drive/folders/1sHxm3I9nue9XFiIeFhoIaXKGFwuy7rE_
+https://github.com/Douglasproglima/nihon_financeiro_api/blob/master/Despesas.png
 
 =======================
 Principais recursos utilizados nesse projeto:
