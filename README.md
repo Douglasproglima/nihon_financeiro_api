@@ -3,6 +3,23 @@
 
 API do projeto de gestão financeira pessoal para brasileiros residentes no Japão.
 
+=======================
+TELA DE LOGIN:
+https://drive.google.com/drive/folders/1sHxm3I9nue9XFiIeFhoIaXKGFwuy7rE_
+
+DASHBOARD:
+https://drive.google.com/drive/folders/1sHxm3I9nue9XFiIeFhoIaXKGFwuy7rE_
+
+CONFIGURAÇÔES:
+https://drive.google.com/drive/folders/1sHxm3I9nue9XFiIeFhoIaXKGFwuy7rE_
+
+RECEITAS:
+https://drive.google.com/drive/folders/1sHxm3I9nue9XFiIeFhoIaXKGFwuy7rE_
+
+DESPESAS:
+https://drive.google.com/drive/folders/1sHxm3I9nue9XFiIeFhoIaXKGFwuy7rE_
+
+=======================
 Principais recursos utilizados nesse projeto:
 
 - [Devise](https://github.com/plataformatec/devise) with default modules.
